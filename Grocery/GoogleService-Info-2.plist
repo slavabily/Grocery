@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>669650439340-snf53ibldtumodudahc2odqc4b1emor7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.669650439340-snf53ibldtumodudahc2odqc4b1emor7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA24cq_TaouK0Z-iOCjR2nsfIdlJnhdqoE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>669650439340</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>slavabily.Grocery</string>
+	<key>PROJECT_ID</key>
+	<string>grocery-efcd4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>grocery-efcd4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:669650439340:ios:7f77c9ff34e8e8636f2309</string>
+	<key>DATABASE_URL</key>
+	<string>https://grocery-efcd4.firebaseio.com</string>
+</dict>
+</plist>
