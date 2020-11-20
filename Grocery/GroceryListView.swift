@@ -9,7 +9,13 @@ import SwiftUI
 
 struct GroceryListView: View {
     var body: some View {
-        Text("Grocery List")
+        NavigationView {
+            List {
+                Text("Grocery List")
+            }
+            .navigationBarTitle(Text("Grocery List"), displayMode: .inline)
+        }
+        
     }
 }
 
