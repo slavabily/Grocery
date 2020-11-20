@@ -11,21 +11,38 @@ struct LoginView: View {
     
     @EnvironmentObject var settings: UserSettings
     
+    @State private var email = ""
+    @State private var password = ""
+    
     var body: some View {
-        Button {
-            settings.loggedIn = true
-        } label: {
-            HStack {
+        Text("Grocery")
+            .font(.largeTitle)
+            .bold()
+            .padding(40)
+        Form {
+            TextField("Email", text: $email)
+            TextField("Password", text: $password)
+            
+            Button {
+                settings.loggedIn = true
+            } label: {
+                
                 Text("Log In")
+                    .frame(width: 300, height: 40)
+                    .foregroundColor(Color.white)
+                    .background(Color.blue)
+                    .cornerRadius(5)
             }
-            .padding()
-            .frame(width: 100, height: 40)
-            .foregroundColor(Color.white)
-            .background(Color.blue)
-            .cornerRadius(5)
+            Button(action: {}, label: {
+                Text("Sign up")
+                    .frame(width: 300, height: 40)
+                    .foregroundColor(Color.white)
+                    .background(Color.orange)
+                    .cornerRadius(5)
+            })
+ 
         }
-        .padding(.bottom, 40)
-
+        
     }
 }
 
