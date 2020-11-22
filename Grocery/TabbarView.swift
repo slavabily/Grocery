@@ -11,6 +11,8 @@ struct TabbarView: View {
     
     @EnvironmentObject var settings: UserSettings
     
+    var onlineUsersCount = 1
+    
     var body: some View {
         
         TabView {
@@ -21,7 +23,7 @@ struct TabbarView: View {
             
             OnlineUsersView()
             .tabItem {
-                Text("Online")
+                Text("Online \(onlineUsersCount)")
             }
             
         }

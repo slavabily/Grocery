@@ -10,6 +10,7 @@ import SwiftUI
 struct StartView: View {
     
     @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var groceryItems: GroceryItems
     
     var body: some View {
         if settings.loggedIn {

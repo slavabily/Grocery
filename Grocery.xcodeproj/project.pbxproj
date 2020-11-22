@@ -17,12 +17,14 @@
 		F9206E492566A0DB0077286C /* OnlineUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9206E482566A0DB0077286C /* OnlineUsersView.swift */; };
 		F977623125640330004FBF60 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977623025640330004FBF60 /* GroceryItem.swift */; };
 		F977623425640380004FBF60 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977623325640380004FBF60 /* User.swift */; };
+		F98AF68C2567FC500095EFBF /* AddAnItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AF68B2567FC500095EFBF /* AddAnItemView.swift */; };
 		F9A285432563E597000E670A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A285422563E597000E670A /* AppDelegate.swift */; };
 		F9A285452563E597000E670A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A285442563E597000E670A /* SceneDelegate.swift */; };
 		F9A285492563E59D000E670A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A285482563E59D000E670A /* Assets.xcassets */; };
 		F9A2854C2563E59D000E670A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A2854B2563E59D000E670A /* Preview Assets.xcassets */; };
 		F9A2854F2563E59D000E670A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A2854D2563E59D000E670A /* LaunchScreen.storyboard */; };
 		F9A285582563E728000E670A /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9A285572563E728000E670A /* GoogleService-Info-2.plist */; };
+		F9F27758256A63940040885B /* GroceryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F27757256A63940040885B /* GroceryItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		F9206E482566A0DB0077286C /* OnlineUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineUsersView.swift; sourceTree = "<group>"; };
 		F977623025640330004FBF60 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		F977623325640380004FBF60 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F98AF68B2567FC500095EFBF /* AddAnItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnItemView.swift; sourceTree = "<group>"; };
 		F9A2853F2563E597000E670A /* Grocery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grocery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A285422563E597000E670A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A285442563E597000E670A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		F9A2854E2563E59D000E670A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9A285502563E59D000E670A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9A285572563E728000E670A /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		F9F27757256A63940040885B /* GroceryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +115,12 @@
 				F9A285422563E597000E670A /* AppDelegate.swift */,
 				F9A285442563E597000E670A /* SceneDelegate.swift */,
 				F9206E32256663B70077286C /* UserSettings.swift */,
+				F9F27757256A63940040885B /* GroceryItems.swift */,
 				F9206E35256665B70077286C /* StartView.swift */,
 				F9206E3A2566672A0077286C /* LoginView.swift */,
 				F9206E3D256668AD0077286C /* TabbarView.swift */,
 				F9206E452566A0B10077286C /* GroceryListView.swift */,
+				F98AF68B2567FC500095EFBF /* AddAnItemView.swift */,
 				F9206E482566A0DB0077286C /* OnlineUsersView.swift */,
 				F9206E412566747B0077286C /* ContentView.swift */,
 				F9A285482563E59D000E670A /* Assets.xcassets */,
@@ -235,12 +241,14 @@
 				F9206E36256665B70077286C /* StartView.swift in Sources */,
 				F9A285432563E597000E670A /* AppDelegate.swift in Sources */,
 				F9A285452563E597000E670A /* SceneDelegate.swift in Sources */,
+				F98AF68C2567FC500095EFBF /* AddAnItemView.swift in Sources */,
 				F9206E462566A0B10077286C /* GroceryListView.swift in Sources */,
 				F977623125640330004FBF60 /* GroceryItem.swift in Sources */,
 				F9206E422566747B0077286C /* ContentView.swift in Sources */,
 				F9206E33256663B70077286C /* UserSettings.swift in Sources */,
 				F977623425640380004FBF60 /* User.swift in Sources */,
 				F9206E492566A0DB0077286C /* OnlineUsersView.swift in Sources */,
+				F9F27758256A63940040885B /* GroceryItems.swift in Sources */,
 				F9206E3B2566672A0077286C /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,8 @@
 import Foundation
 import Firebase
 
-struct GroceryItem {
-  
+struct GroceryItem: Hashable {
+    
   let ref: DatabaseReference?
   let key: String
   let name: String
