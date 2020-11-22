@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var onlineUsers: OnlineUsers
     
     @State private var email = ""
     @State private var password = ""
@@ -24,6 +25,8 @@ struct LoginView: View {
             TextField("Password", text: $password)
             
             Button {
+                onlineUsers.users = ["hungry@person.food"]
+                
                 settings.loggedIn = true
             } label: {
                 

@@ -26,6 +26,7 @@ struct GroceryListView: View {
                     }
                     
                 }
+                .onDelete(perform: deleteItems(at:))
             }
             .navigationBarTitle(Text("Grocery List"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
@@ -36,8 +37,13 @@ struct GroceryListView: View {
             .sheet(isPresented: $showingAddAnItemScreen) {
                 AddAnItemView().environmentObject(groceryItems)
             }
+        } 
+    }
+    
+    func deleteItems(at offsets: IndexSet) {
+        for offset in offsets {
+            groceryItems.items.remove(at: offset)
         }
-        
     }
 }
 

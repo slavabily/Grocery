@@ -24,6 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let settings = UserSettings()
         
         var groceryItems = GroceryItems()
+        
+        var onlineUsers = OnlineUsers()
 
         // Use a UIHostingController as window root view controller.
 //        if let windowScene = scene as? UIWindowScene {
@@ -34,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: StartView().environmentObject(settings).environmentObject(groceryItems))
+            window.rootViewController = UIHostingController(rootView: StartView().environmentObject(settings).environmentObject(groceryItems).environmentObject(onlineUsers))
             self.window = window
             window.makeKeyAndVisible()
         }

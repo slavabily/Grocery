@@ -10,11 +10,14 @@ import SwiftUI
 struct OnlineUsersView: View {
     
     @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var onlineUsers: OnlineUsers
     
     var body: some View {
         NavigationView {
             List {
-                Text("Online Users")
+                ForEach(onlineUsers.users, id:\.self) { user in
+                    Text(user)
+                }
             }
             .navigationBarTitle(Text("Online"), displayMode: .inline)
             .navigationBarItems(trailing: Button {
@@ -23,9 +26,9 @@ struct OnlineUsersView: View {
                     Text("Sign Out")
             })
         }
-        
-        
     }
+    
+     
 }
 
 struct OnlineUsersView_Previews: PreviewProvider {

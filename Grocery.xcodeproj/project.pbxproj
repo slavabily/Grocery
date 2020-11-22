@@ -25,6 +25,7 @@
 		F9A2854F2563E59D000E670A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A2854D2563E59D000E670A /* LaunchScreen.storyboard */; };
 		F9A285582563E728000E670A /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9A285572563E728000E670A /* GoogleService-Info-2.plist */; };
 		F9F27758256A63940040885B /* GroceryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F27757256A63940040885B /* GroceryItems.swift */; };
+		F9F2775B256AC8140040885B /* OnlineUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F2775A256AC8140040885B /* OnlineUsers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		F9A285502563E59D000E670A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9A285572563E728000E670A /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		F9F27757256A63940040885B /* GroceryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItems.swift; sourceTree = "<group>"; };
+		F9F2775A256AC8140040885B /* OnlineUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineUsers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				F9A285442563E597000E670A /* SceneDelegate.swift */,
 				F9206E32256663B70077286C /* UserSettings.swift */,
 				F9F27757256A63940040885B /* GroceryItems.swift */,
+				F9F2775A256AC8140040885B /* OnlineUsers.swift */,
 				F9206E35256665B70077286C /* StartView.swift */,
 				F9206E3A2566672A0077286C /* LoginView.swift */,
 				F9206E3D256668AD0077286C /* TabbarView.swift */,
@@ -250,6 +253,7 @@
 				F9206E492566A0DB0077286C /* OnlineUsersView.swift in Sources */,
 				F9F27758256A63940040885B /* GroceryItems.swift in Sources */,
 				F9206E3B2566672A0077286C /* LoginView.swift in Sources */,
+				F9F2775B256AC8140040885B /* OnlineUsers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
