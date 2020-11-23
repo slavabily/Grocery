@@ -49,7 +49,9 @@ struct GroceryListView: View {
     
     func deleteItems(at offsets: IndexSet) {
         for offset in offsets {
-            groceryItems.items.remove(at: offset)
+            let groceryItem = groceryItems.items[offset]
+            
+            groceryItem.ref?.removeValue()
         }
     }
     
