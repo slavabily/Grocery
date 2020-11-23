@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct GroceryListView: View {
     
     @EnvironmentObject var groceryItems: GroceryItems
+    
+    let ref = Database.database().reference(withPath: "grocery-items")
     
     var user = User(uid: "FakeID", email: "hungry@person.food")
     
@@ -27,6 +30,10 @@ struct GroceryListView: View {
                     
                 }
                 .onDelete(perform: deleteItems(at:))
+                
+            }
+            .onAppear {
+                loadItems()
             }
             .navigationBarTitle(Text("Grocery List"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
@@ -43,6 +50,19 @@ struct GroceryListView: View {
     func deleteItems(at offsets: IndexSet) {
         for offset in offsets {
             groceryItems.items.remove(at: offset)
+        }
+    }
+    
+    func loadItems() {
+        ref.observe(.value) { (snapshot) in
+            var newItems = [GroceryItem]()
+            
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot, let groceryItem = GroceryItem(snapshot: snapshot) {
+                    newItems.append(groceryItem)
+                }
+            }
+            groceryItems.items = newItems
         }
     }
 }

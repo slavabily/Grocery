@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct AddAnItemView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var groceryItems: GroceryItems
     
-    let user = User(uid: "FakeId", email: "hungry@person.food")
-    
     @State private var name = ""
+    
+    let ref = Database.database().reference(withPath: "grocery-items")
     
     var body: some View {
         NavigationView {
@@ -22,9 +23,7 @@ struct AddAnItemView: View {
                 Section(header: Text("Add an Item"), content: {
                     TextField("Item name", text: $name )
                     Button("Save") {
-                        let groceryItem = GroceryItem(name: name, addedByUser: user.email, completed: false)
-                        groceryItems.items.append(groceryItem)
-                        
+                        save()
                         presentationMode.wrappedValue.dismiss()
                     }
                 })
@@ -32,10 +31,25 @@ struct AddAnItemView: View {
             .navigationBarTitle("Grocery Item")
         }     
     }
+    
+    func save() {
+        let user = User(uid: "FakeId", email: "hungry@person.food")
+        
+        let groceryItem = GroceryItem(name: name, addedByUser: user.email, completed: false)
+        
+        let text = name.lowercased()
+        
+        let groceryItemRef = ref.child(text)
+        
+        groceryItemRef.setValue(groceryItem.toAnyObject())
+        
+//        groceryItems.items.append(groceryItem)
+        
+    }
 }
 
-//struct AddAnItemView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddAnItemView()
-//    }
-//}
+struct AddAnItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddAnItemView()
+    }
+}
