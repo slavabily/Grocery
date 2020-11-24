@@ -8,6 +8,35 @@
 import SwiftUI
 import Firebase
 
+struct MultiselectRow: View {
+    
+    var groceryItem: GroceryItem
+    var email: String
+    
+    @State var completed = false
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(groceryItem.name)
+                Text(email)
+                    .font(.footnote)
+            }
+            .foregroundColor(completed ? .gray : .black)
+            .onTapGesture {
+                completed.toggle()
+                groceryItem.ref?.updateChildValues(["completed": completed])
+            }
+            Spacer()
+            
+            if completed {
+                Image(systemName: "checkmark")
+                    .foregroundColor(.blue)
+            }
+        }
+    }
+}
+
 struct GroceryListView: View {
     
     @EnvironmentObject var groceryItems: GroceryItems
@@ -22,12 +51,9 @@ struct GroceryListView: View {
         NavigationView {
             List {
                 ForEach(groceryItems.items, id: \.self) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.name)
-                        Text(user.email)
-                            .font(.footnote)
-                    }
+                    MultiselectRow(groceryItem: item, email: user.email, completed: item.completed)
                     
+                     
                 }
                 .onDelete(perform: deleteItems(at:))
                 

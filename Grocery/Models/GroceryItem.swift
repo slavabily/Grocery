@@ -16,7 +16,7 @@ struct GroceryItem: Hashable {
   let addedByUser: String
   var completed: Bool
   
-  init(name: String, addedByUser: String, completed: Bool, key: String = "") {
+    init(name: String, addedByUser: String, completed: Bool, key: String = "") {
     self.ref = nil
     self.key = key
     self.name = name
@@ -32,7 +32,6 @@ struct GroceryItem: Hashable {
       let completed = value["completed"] as? Bool else {
       return nil
     }
-    
     self.ref = snapshot.ref
     self.key = snapshot.key
     self.name = name
