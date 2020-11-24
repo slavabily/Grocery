@@ -82,7 +82,7 @@ struct GroceryListView: View {
     }
     
     func loadItems() {
-        ref.observe(.value) { (snapshot) in
+        ref.queryOrdered(byChild: "completed").observe(.value) { (snapshot) in
             var newItems = [GroceryItem]()
             
             for child in snapshot.children {
