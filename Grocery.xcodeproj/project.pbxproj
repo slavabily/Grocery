@@ -15,6 +15,7 @@
 		F9206E422566747B0077286C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9206E412566747B0077286C /* ContentView.swift */; };
 		F9206E462566A0B10077286C /* GroceryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9206E452566A0B10077286C /* GroceryListView.swift */; };
 		F9206E492566A0DB0077286C /* OnlineUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9206E482566A0DB0077286C /* OnlineUsersView.swift */; };
+		F92D3668256D3BF600C046E3 /* SignupNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92D3667256D3BF600C046E3 /* SignupNewUserView.swift */; };
 		F977623125640330004FBF60 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977623025640330004FBF60 /* GroceryItem.swift */; };
 		F977623425640380004FBF60 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977623325640380004FBF60 /* User.swift */; };
 		F98AF68C2567FC500095EFBF /* AddAnItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98AF68B2567FC500095EFBF /* AddAnItemView.swift */; };
@@ -39,6 +40,8 @@
 		F9206E412566747B0077286C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F9206E452566A0B10077286C /* GroceryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListView.swift; sourceTree = "<group>"; };
 		F9206E482566A0DB0077286C /* OnlineUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineUsersView.swift; sourceTree = "<group>"; };
+		F92D3662256D193100C046E3 /* Grocery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grocery.entitlements; sourceTree = "<group>"; };
+		F92D3667256D3BF600C046E3 /* SignupNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupNewUserView.swift; sourceTree = "<group>"; };
 		F977623025640330004FBF60 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		F977623325640380004FBF60 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F98AF68B2567FC500095EFBF /* AddAnItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnItemView.swift; sourceTree = "<group>"; };
@@ -113,15 +116,17 @@
 		F9A285412563E597000E670A /* Grocery */ = {
 			isa = PBXGroup;
 			children = (
-				F977622725640296004FBF60 /* Models */,
+				F92D3662256D193100C046E3 /* Grocery.entitlements */,
 				F9A285422563E597000E670A /* AppDelegate.swift */,
 				F9A285442563E597000E670A /* SceneDelegate.swift */,
+				F977622725640296004FBF60 /* Models */,
 				F9206E32256663B70077286C /* UserSettings.swift */,
 				F9F27757256A63940040885B /* GroceryItems.swift */,
-				F9F2775A256AC8140040885B /* OnlineUsers.swift */,
 				F9206E35256665B70077286C /* StartView.swift */,
 				F9206E3A2566672A0077286C /* LoginView.swift */,
+				F92D3667256D3BF600C046E3 /* SignupNewUserView.swift */,
 				F9206E3D256668AD0077286C /* TabbarView.swift */,
+				F9F2775A256AC8140040885B /* OnlineUsers.swift */,
 				F9206E452566A0B10077286C /* GroceryListView.swift */,
 				F98AF68B2567FC500095EFBF /* AddAnItemView.swift */,
 				F9206E482566A0DB0077286C /* OnlineUsersView.swift */,
@@ -241,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9206E3E256668AD0077286C /* TabbarView.swift in Sources */,
+				F92D3668256D3BF600C046E3 /* SignupNewUserView.swift in Sources */,
 				F9206E36256665B70077286C /* StartView.swift in Sources */,
 				F9A285432563E597000E670A /* AppDelegate.swift in Sources */,
 				F9A285452563E597000E670A /* SceneDelegate.swift in Sources */,
@@ -393,6 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Grocery/Grocery.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Grocery/Preview Content\"";
 				DEVELOPMENT_TEAM = L6T2S9K4GS;
@@ -415,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Grocery/Grocery.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Grocery/Preview Content\"";
 				DEVELOPMENT_TEAM = L6T2S9K4GS;

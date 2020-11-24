@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
     
@@ -14,6 +15,10 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @State private var showingSignupNewUserView = false
+    @State private var showingAlert = false
+    
+    @State private var alertMessage = ""
     
     var body: some View {
         Text("Grocery")
@@ -22,30 +27,45 @@ struct LoginView: View {
             .padding(40)
         Form {
             TextField("Email", text: $email)
-            TextField("Password", text: $password)
+            SecureField("Password", text: $password)
             
             Button {
+                guard email.count > 0, password.count > 0 else { return }
+                
+                Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                    if let error = error, user == nil {
+                        alertMessage = error.localizedDescription
+                        showingAlert = true
+                    } else {
+                        Auth.auth().addStateDidChangeListener { (auth, user) in
+                            settings.loggedIn = true
+                        }
+                    }
+                }
                 onlineUsers.users = ["hungry@person.food"]
-                
-                settings.loggedIn = true
             } label: {
-                
                 Text("Log In")
                     .frame(width: 300, height: 40)
                     .foregroundColor(Color.white)
                     .background(Color.blue)
                     .cornerRadius(5)
             }
-            Button(action: {}, label: {
+            Button(action: {
+                showingSignupNewUserView.toggle()
+            }, label: {
                 Text("Sign up")
                     .frame(width: 300, height: 40)
                     .foregroundColor(Color.white)
                     .background(Color.orange)
                     .cornerRadius(5)
             })
- 
         }
-        
+        .alert(isPresented: $showingAlert, content: {
+            Alert(title: Text("Sign In Failed"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        })
+        .sheet(isPresented: $showingSignupNewUserView) {
+            SignupNewUserView()
+        }
     }
 }
 
