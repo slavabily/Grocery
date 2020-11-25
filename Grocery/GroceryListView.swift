@@ -43,7 +43,7 @@ struct GroceryListView: View {
     
     let ref = Database.database().reference(withPath: "grocery-items")
     
-    var user = User(uid: "FakeID", email: "hungry@person.food")
+    @State var user = User(uid: "FakeID", email: "hungry@person.food")
     
     @State private var showingAddAnItemScreen = false
     
@@ -60,6 +60,12 @@ struct GroceryListView: View {
             }
             .onAppear {
                 loadItems()
+                
+                Auth.auth().addStateDidChangeListener { (auth, user) in
+                    guard let user = user else { return }
+                    
+                    self.user = User(authData: user)
+                }
             }
             .navigationBarTitle(Text("Grocery List"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {

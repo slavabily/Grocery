@@ -14,7 +14,7 @@ struct AddAnItemView: View {
     @EnvironmentObject var groceryItems: GroceryItems
     
     @State private var name = ""
-    
+ 
     let ref = Database.database().reference(withPath: "grocery-items")
     
     var body: some View {
@@ -33,17 +33,21 @@ struct AddAnItemView: View {
     }
     
     func save() {
-        let user = User(uid: "FakeId", email: "hungry@person.food")
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            guard let user = user else { return }
+            
+            let u = User(authData: user)
+            
+            let groceryItem = GroceryItem(name: name, addedByUser: u.email, completed: false)
+            
+            let text = name.lowercased()
+            
+            let groceryItemRef = ref.child(text)
+            
+            groceryItemRef.setValue(groceryItem.toAnyObject())
+        }
         
-        let groceryItem = GroceryItem(name: name, addedByUser: user.email, completed: false)
         
-        let text = name.lowercased()
-        
-        let groceryItemRef = ref.child(text)
-        
-        groceryItemRef.setValue(groceryItem.toAnyObject())
-        
-//        groceryItems.items.append(groceryItem)
         
     }
 }
