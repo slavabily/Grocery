@@ -36,9 +36,9 @@ struct AddAnItemView: View {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             guard let user = user else { return }
             
-            let u = User(authData: user)
+            let currentUser = User(authData: user)
             
-            let groceryItem = GroceryItem(name: name, addedByUser: u.email, completed: false)
+            let groceryItem = GroceryItem(name: name, addedByUser: currentUser.email, completed: false)
             
             let text = name.lowercased()
             

@@ -42,6 +42,7 @@ struct GroceryListView: View {
     @EnvironmentObject var groceryItems: GroceryItems
     
     let ref = Database.database().reference(withPath: "grocery-items")
+    let userRef = Database.database().reference(withPath: "online")
     
     @State var user = User(uid: "FakeID", email: "hungry@person.food")
     
@@ -52,8 +53,6 @@ struct GroceryListView: View {
             List {
                 ForEach(groceryItems.items, id: \.self) { item in
                     MultiselectRow(groceryItem: item, email: user.email, completed: item.completed)
-                    
-                     
                 }
                 .onDelete(perform: deleteItems(at:))
                 
@@ -65,6 +64,12 @@ struct GroceryListView: View {
                     guard let user = user else { return }
                     
                     self.user = User(authData: user)
+                    
+                    let currentUserRef = userRef.child(user.uid)
+                    
+                    currentUserRef.setValue(user.email)
+                    
+                    currentUserRef.onDisconnectRemoveValue()
                 }
             }
             .navigationBarTitle(Text("Grocery List"), displayMode: .inline)
