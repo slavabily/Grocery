@@ -42,35 +42,26 @@ struct GroceryListView: View {
     @EnvironmentObject var groceryItems: GroceryItems
     
     let ref = Database.database().reference(withPath: "grocery-items")
-    let userRef = Database.database().reference(withPath: "online")
     
-    @State var user = User(uid: "FakeID", email: "hungry@person.food")
-    
+    @State var user = User(uid: "FakeUID", email: "hungry@person.food")
     @State private var showingAddAnItemScreen = false
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(groceryItems.items, id: \.self) { item in
-                    MultiselectRow(groceryItem: item, email: user.email, completed: item.completed)
+                    MultiselectRow(groceryItem: item, email: item.addedByUser, completed: item.completed)
                 }
                 .onDelete(perform: deleteItems(at:))
-                
             }
             .onAppear {
-                loadItems()
-                
                 Auth.auth().addStateDidChangeListener { (auth, user) in
                     guard let user = user else { return }
-                    
                     self.user = User(authData: user)
-                    
-                    let currentUserRef = userRef.child(user.uid)
-                    
-                    currentUserRef.setValue(user.email)
-                    
-                    currentUserRef.onDisconnectRemoveValue()
                 }
+                
+                loadItems()
+                
             }
             .navigationBarTitle(Text("Grocery List"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {

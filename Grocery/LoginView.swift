@@ -11,7 +11,7 @@ import Firebase
 struct LoginView: View {
     
     @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var onlineUsers: OnlineUsers
+//    @EnvironmentObject var onlineUsers: OnlineUsers
     
     @State private var email = ""
     @State private var password = ""
@@ -31,18 +31,20 @@ struct LoginView: View {
             
             Button {
                 guard email.count > 0, password.count > 0 else { return }
-                
+
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     if let error = error, user == nil {
                         alertMessage = error.localizedDescription
                         showingAlert = true
                     } else {
                         Auth.auth().addStateDidChangeListener { (auth, user) in
-                            settings.loggedIn = true
+                            if user != nil {
+                                settings.loggedIn.toggle()
+                            }
                         }
                     }
                 }
-                onlineUsers.users = ["hungry@person.food"]
+//                onlineUsers.users = ["hungry@person.food"]
             } label: {
                 Text("Log In")
                     .frame(width: 300, height: 40)

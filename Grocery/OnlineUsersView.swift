@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
 
 struct OnlineUsersView: View {
     
@@ -22,24 +21,7 @@ struct OnlineUsersView: View {
             }
             .navigationBarTitle(Text("Online"), displayMode: .inline)
             .navigationBarItems(trailing: Button {
-                
-                let user = Auth.auth().currentUser!
-                
-                let onlineRef = Database.database().reference(withPath: "online/\(user.uid)")
-                
-                onlineRef.removeValue { (error, _) in
-                    if let error = error {
-                        print("Removing online failed \(error)")
-                        return
-                    }
-//                    do {
-//                        try Auth.auth().signOut()
-//                        
-//                    } catch (let error) {
-//                        print("Auth sign out failed: \(error)")
-//                    }
-                    settings.loggedIn = false
-                }
+                settings.loggedIn = false
             } label: {   
                     Text("Sign Out")
             })

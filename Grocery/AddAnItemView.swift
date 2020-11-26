@@ -14,7 +14,7 @@ struct AddAnItemView: View {
     @EnvironmentObject var groceryItems: GroceryItems
     
     @State private var name = ""
- 
+    
     let ref = Database.database().reference(withPath: "grocery-items")
     
     var body: some View {
@@ -33,8 +33,12 @@ struct AddAnItemView: View {
     }
     
     func save() {
+        
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            guard let user = user else { return }
+            guard let user = user else {
+                print("Could not find any athorised user... ")
+                return
+            }
             
             let currentUser = User(authData: user)
             
@@ -45,10 +49,7 @@ struct AddAnItemView: View {
             let groceryItemRef = ref.child(text)
             
             groceryItemRef.setValue(groceryItem.toAnyObject())
-        }
-        
-        
-        
+        } 
     }
 }
 
