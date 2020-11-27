@@ -36,7 +36,7 @@ struct OnlineUsersView: View {
                     } catch (let error) {
                         print("Auth sign out failed: \(error)")
                     }
-                }   
+                }
             } label: {   
                     Text("Sign Out")
             })

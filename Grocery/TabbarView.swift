@@ -6,29 +6,38 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct TabbarView: View {
     
     @EnvironmentObject var settings: UserSettings
     
-    var onlineUsersCount = 1
+    let usersRef = Database.database().reference(withPath: "online")
+    
+    @State private var onlineUsersCount = ""
     
     var body: some View {
         
         TabView {
-           GroceryListView()
-            .tabItem {
-                Text("Grocery List")
-            }
+            GroceryListView()
+                .tabItem {
+                    Text("Grocery List")
+                }
             
             OnlineUsersView()
-            .tabItem {
-                Text("Online \(onlineUsersCount)")
-            }
-            
+                .tabItem {
+                    Text("Online \(onlineUsersCount)")
+                }
+                .onAppear(perform: {
+                    usersRef.observe(.value) { (snapshot) in
+                        if snapshot.exists() {
+                            onlineUsersCount = snapshot.childrenCount.description
+                        } else {
+                            onlineUsersCount = "0"
+                        }
+                    }
+                })
         }
-        
-        
     }
 }
 
