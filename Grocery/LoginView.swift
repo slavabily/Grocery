@@ -58,7 +58,7 @@ struct LoginView: View {
                 Text("Sign up")
                     .frame(width: 300, height: 40)
                     .foregroundColor(Color.white)
-                    .background(Color.orange)
+                    .background(Color.green)
                     .cornerRadius(5)
             })
         }

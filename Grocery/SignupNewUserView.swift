@@ -32,10 +32,18 @@ struct SignupNewUserView: View {
                         }
                         presentationMode.wrappedValue.dismiss()
                     }
+                    .frame(width: 300, height: 40)
+                    .foregroundColor(Color.white)
+                    .background(Color.blue)
+                    .cornerRadius(5)
                     Button("Cancel") {
                         
                         presentationMode.wrappedValue.dismiss()
                     }
+                    .frame(width: 300, height: 40)
+                    .foregroundColor(Color.white)
+                    .background(Color.red)
+                    .cornerRadius(5)
                 }
             }
             .navigationBarTitle("Register")
