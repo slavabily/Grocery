@@ -13,6 +13,8 @@ struct OnlineUsersView: View {
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var onlineUsers: OnlineUsers
     
+    let usersRef = Database.database().reference(withPath: "online")
+    
     var body: some View {
         NavigationView {
             List {
@@ -20,6 +22,21 @@ struct OnlineUsersView: View {
                     Text(user)
                 }
             }
+            //Displaying a List of online users
+            .onAppear(perform: {
+                usersRef.observe(.childAdded) { (snap) in
+                    guard let email = snap.value as? String else { return }
+                    onlineUsers.users.append(email)
+                }
+                usersRef.observe(.childRemoved) { (snap) in
+                    guard let emailToFind = snap.value as? String else { return }
+                    for (index, email) in onlineUsers.users.enumerated() {
+                        if email == emailToFind {
+                            onlineUsers.users.remove(at: index)
+                        }
+                    }
+                }
+            })
             .navigationBarTitle(Text("Online"), displayMode: .inline)
             .navigationBarItems(trailing: Button {
                 
