@@ -42,6 +42,7 @@ struct GroceryListView: View {
     @EnvironmentObject var groceryItems: GroceryItems
     
     let ref = Database.database().reference(withPath: "grocery-items")
+    let usersRef = Database.database().reference(withPath: "online")
     
     @State var user = User(uid: "FakeUID", email: "hungry@person.food")
     @State private var showingAddAnItemScreen = false
@@ -58,6 +59,11 @@ struct GroceryListView: View {
                 Auth.auth().addStateDidChangeListener { (auth, user) in
                     guard let user = user else { return }
                     self.user = User(authData: user)
+                    
+                    // Monitoring user's online status
+                    let currentUserRef = usersRef.child(user.uid)
+                    currentUserRef.setValue(user.email)
+                    currentUserRef.onDisconnectRemoveValue()
                 }
                 
                 loadItems()
